@@ -4,7 +4,7 @@ from hue.sdk.data.archetype import Archetype
 from hue.sdk.data.function import Function
 
 @dataclass(kw_only=True)
-class ProductData:
+class LightProductData:
 
     name: str | None = None
     archetype: Archetype | None = None

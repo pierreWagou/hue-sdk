@@ -1,5 +1,5 @@
 from hue.sdk.client.client import HueClient
-from hue.sdk.data.product_data import ProductData
+from hue.sdk.data.light_product_data import ProductData
 from hue.sdk.data.function import Function
 from hue.sdk.client.token import HueToken,  HueTokenFactory
 from hue.sdk.light.light import Light

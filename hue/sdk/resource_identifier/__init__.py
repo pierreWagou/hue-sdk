@@ -1,0 +1,1 @@
+from .resource_identifier import ResourceIdentifier
