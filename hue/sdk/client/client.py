@@ -14,5 +14,4 @@ class HueClient:
     def get_light(self, light_id: str):
         endpoint = f"light/{light_id}"
         light_data = self.hue_session.get(url=endpoint)[0]
-        print(light_data)
         return light_data

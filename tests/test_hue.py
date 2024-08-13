@@ -1,6 +1,4 @@
 from hue.sdk.client.client import HueClient
-from hue.sdk.data.light_product_data import ProductData
-from hue.sdk.data.function import Function
 from hue.sdk.client.token import HueToken,  HueTokenFactory
 from hue.sdk.light.light import Light
 
@@ -18,8 +16,7 @@ def test_get_light():
         client_id=client_id,
         client_secret=client_secret,
     )
-    light = client.get_light(light_id="3c20738a-b6ee-4752-9d19-593adcad6509")
+    light_data = client.get_light(light_id="3c20738a-b6ee-4752-9d19-593adcad6509")
+    light = Light.model_validate(light_data)
+    print(light)
     assert isinstance(light, Light)
-
-def test_hue():
-    ProductData(name="test", function=Function.DECORATIVE)

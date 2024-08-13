@@ -1,7 +1,6 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
-@dataclass(kw_only=True)
-class MirekSchema:
+class MirekSchema(BaseModel):
     
     mirek_minimum: int
     mirek_maximum: int

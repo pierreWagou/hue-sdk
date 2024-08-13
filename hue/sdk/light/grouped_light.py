@@ -1,8 +1,8 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.light.abstract_light import AbstractLight
+from hue.sdk.resource.resource_type import ResourceType
 
-@dataclass(kw_only=True)
-class GroupedLight(AbstractLight):
+class GroupedLight(BaseModel, AbstractLight):
 
-    type: str = "grouped_light"
+    type: ResourceType = ResourceType.GROUPED_LIGHT

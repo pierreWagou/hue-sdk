@@ -1,6 +1,5 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
-@dataclass(kw_only=True)
-class XY:
+class XY(BaseModel):
     x: float
     y: float

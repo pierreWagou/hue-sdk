@@ -2,7 +2,7 @@ from enum import Enum
 
 class Effect(Enum):
 
-    PRIMS = "prims"
+    PRISM = "prism"
     OPAL = "opal"
     GLISTEN = "glisten"
     SPARKLE = "sparkle"

@@ -1,9 +1,8 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.color.xy import XY
 
-@dataclass(kw_only=True)
-class Gamut:
+class Gamut(BaseModel):
     red: XY
     green: XY
     blue: XY

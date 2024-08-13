@@ -1,11 +1,11 @@
-from dataclasses import dataclass
 from typing import Generic, TypeVar, List
 from abc import ABC
 
+from pydantic import BaseModel
+
 AbstractEffect = TypeVar("AbstractEffects")
 
-@dataclass(kw_only=True)
-class AbstractEffects(Generic[AbstractEffect], ABC):
+class AbstractEffects(BaseModel, Generic[AbstractEffect], ABC):
 
     status_values: List[AbstractEffect]
     status: AbstractEffect

@@ -1,10 +1,9 @@
-from dataclasses import dataclass
 from typing import List
+from pydantic import BaseModel
 
 from hue.sdk.dynamics.dynamic_status import DynamicStatus
 
-@dataclass(kw_only=True)
-class Dynamics:
+class Dynamics(BaseModel):
     
     status: DynamicStatus
     status_values: List[DynamicStatus]

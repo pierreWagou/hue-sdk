@@ -1,11 +1,12 @@
 from dataclasses import dataclass
 from typing import List
 
+from pydantic import BaseModel
+
 from hue.sdk.gradient.mode import GradientMode
 from hue.sdk.gradient.point import GradientPoint
 
-@dataclass(kw_only=True)
-class Gradient:
+class Gradient(BaseModel):
 
     points: List[GradientPoint]
     mode: GradientMode

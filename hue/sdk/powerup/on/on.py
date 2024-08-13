@@ -1,10 +1,9 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.on import On
 from hue.sdk.powerup.on.mode import OnMode
 
-@dataclass(kw_only=True)
-class PowerupOn:
+class PowerupOn(BaseModel):
     
     mode: OnMode
     on: On | None = None

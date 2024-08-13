@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from hue.sdk.data.archetype import Archetype
+from hue.sdk.archetype import Archetype
 
 @dataclass(kw_only=True)
 class DeviceProductData:

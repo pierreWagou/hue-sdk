@@ -1,8 +1,10 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
-from hue.sdk.roomzone import RoomZone
+from hue.sdk.metadata import Metadata
+from hue.sdk.resource import ParentResource
+from hue.sdk.resource.resource_type import ResourceType
 
-@dataclass(kw_only=True)
-class Room(RoomZone):
+class Room(BaseModel, ParentResource):
 
-    type: str = "room"
+    type: ResourceType = ResourceType.ROOM
+    metadata: Metadata

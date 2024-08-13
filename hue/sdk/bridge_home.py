@@ -1,12 +1,13 @@
-from dataclasses import dataclass
 from typing import List
 
-from hue.sdk.resource import Resource
-from hue.sdk.resource_identifier import ResourceIdentifier
+from pydantic import BaseModel
 
-@dataclass(kw_only=True)
-class BridgeHome(Resource):
+from hue.sdk.resource import ParentResource
+from hue.sdk.resource.resource_identifier import ResourceIdentifier
+from hue.sdk.resource.resource_type import ResourceType
 
-    type: str = "bridge_home"
+class BridgeHome(BaseModel, ParentResource):
+
+    type: str = ResourceType.BRIDGE_HOME
     children: List[ResourceIdentifier]
     services: List[ResourceIdentifier]

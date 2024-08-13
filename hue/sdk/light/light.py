@@ -1,22 +1,21 @@
-from dataclasses import dataclass
-from typing import ClassVar
+from pydantic import BaseModel
 
 from hue.sdk.effects import Effects, TimedEffects
 from hue.sdk.gradient import Gradient
 from hue.sdk.light.abstract_light import AbstractLight
+from hue.sdk.light.metadata import LightMetadata
 from hue.sdk.light.mode import Mode
-from hue.sdk.data.metadata import Metadata
 from hue.sdk.powerup import Powerup
-from hue.sdk.data.light_product_data import LightProductData
+from hue.sdk.light.product_data import LightProductData
 from hue.sdk.color_temperature import ColorTemperature
 from hue.sdk.color import Color
 from hue.sdk.dynamics import Dynamics
+from hue.sdk.resource.resource_type import ResourceType
 
-@dataclass(kw_only=True)
-class Light(AbstractLight):
+class Light(BaseModel, AbstractLight):
 
-    type: str = "light"
-    metadata: Metadata
+    type: ResourceType = ResourceType.LIGHT
+    metadata: LightMetadata
     product_data: LightProductData | None = None
     service_id: int
     color_temperature: ColorTemperature | None = None
@@ -27,3 +26,6 @@ class Light(AbstractLight):
     effects: Effects | None = None
     timed_effects: TimedEffects | None = None
     powerup: Powerup | None = None
+    identify: dict
+    dimming_delta: dict
+    color_temperature_delta: dict

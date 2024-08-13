@@ -1,8 +1,7 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.color import Color
 
-@dataclass(kw_only=True)
-class GradientPoint:
+class GradientPoint(BaseModel):
 
     color: Color

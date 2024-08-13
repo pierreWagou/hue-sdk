@@ -1,10 +1,9 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.color_temperature.mirek_schema import MirekSchema
 
-@dataclass(kw_only=True)
-class ColorTemperature:
+class ColorTemperature(BaseModel):
     
     mirek: int
-    mirek_valid: bool
-    mirek_schema: MirekSchema
+    mirek_valid: bool | None = None
+    mirek_schema: MirekSchema | None = None
