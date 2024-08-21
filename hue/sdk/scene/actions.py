@@ -1,10 +1,9 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.scene.action import Action
-from hue.sdk.resource_identifier import ResourceIdentifier
+from hue.sdk.resource.resource_identifier import ResourceIdentifier
 
-@dataclass(kw_only=True)
-class Actions:
+class Actions(BaseModel):
 
     target: ResourceIdentifier
     action: Action

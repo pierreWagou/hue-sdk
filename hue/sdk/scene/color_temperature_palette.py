@@ -1,10 +1,9 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.color_temperature import ColorTemperature
 from hue.sdk.dimming import Dimming
 
-@dataclass(kw_only=True)
-class ColorTemperaturePalette:
+class ColorTemperaturePalette(BaseModel):
 
     color_temperature: ColorTemperature
     dimming: Dimming

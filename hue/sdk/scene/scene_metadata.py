@@ -1,9 +1,8 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
-from hue.sdk.resource_identifier.resource_identifier import ResourceIdentifier
+from hue.sdk.resource.resource_identifier import ResourceIdentifier
 
-@dataclass(kw_only=True)
-class SceneMetadata:
+class SceneMetadata(BaseModel):
     
     name: str
     image: ResourceIdentifier | None = None

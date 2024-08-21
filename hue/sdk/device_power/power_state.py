@@ -1,9 +1,8 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.device_power.battery_state import BatteryState
 
-@dataclass(kw_only=True)
-class PowerState:
+class PowerState(BaseModel):
     
     battery_state: BatteryState | None = None
     battery_level: int | None = None

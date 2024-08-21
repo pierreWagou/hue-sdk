@@ -1,6 +1,5 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
-@dataclass(kw_only=True)
-class TimeZone:
+class TimeZone(BaseModel):
 
     time_zone: str

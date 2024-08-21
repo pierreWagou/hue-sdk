@@ -9,7 +9,7 @@ from hue.sdk.gradient.point import GradientPoint
 class Gradient(BaseModel):
 
     points: List[GradientPoint]
-    mode: GradientMode
-    points_capable: int
-    mode_values: List[GradientMode]
+    mode: GradientMode | None = None
+    points_capable: int | None = None
+    mode_values: List[GradientMode] | None = None
     pixel_count: int | None = None

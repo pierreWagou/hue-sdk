@@ -1,5 +1,4 @@
 from enum import Enum
-from logging import CRITICAL
 
 class BatteryState(Enum):
 

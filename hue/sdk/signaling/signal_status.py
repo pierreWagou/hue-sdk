@@ -10,5 +10,6 @@ from hue.sdk.color import Color
 class SignalStatus:
     
     signal: Signal
-    estimated_end: datetime
-    colors: List[Color]
+    estimated_end: datetime | None = None
+    duration: int | None = None
+    colors: List[Color] | None = None

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "hue-sdk"
+version = "0.1.0"
+description = "SDK for Philips Hue"
+authors = ["Pierre Romon <pierre.romon@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.2"
+
+[tool.poetry.group.dev.dependencies]
+keyring = "^25.3.0"
+requests = "^2.32.3"
+pydantic = "^2.8.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,9 +1,8 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.resource.resource_type import ResourceType
 
-@dataclass(kw_only=True)
-class Resource:
+class Resource(BaseModel):
 
     type: ResourceType
     id: str

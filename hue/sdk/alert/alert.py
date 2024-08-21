@@ -1,9 +1,9 @@
-from dataclasses import dataclass
 from typing import List
+from pydantic import BaseModel
 
 from hue.sdk.alert.effect_type import AlertEffectType
 
-@dataclass(kw_only=True)
-class Alert:
+class Alert(BaseModel):
     
-    action_values = List[AlertEffectType]
+    action_values: List[AlertEffectType] | None = None
+    action: AlertEffectType | None = None

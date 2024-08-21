@@ -1,8 +1,7 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.device.device_status import DeviceStatus
 
-@dataclass(kw_only=True)
-class Usertest:
+class Usertest(BaseModel):
     status: DeviceStatus
     usertest: bool

@@ -63,6 +63,7 @@ class HueSession(Session):
         full_url = f"{self.api_url}/{url}"
         response = super().request(method, full_url, **kwargs)
         if response.status_code // 100 != 2:
+            print(response.text)
             response.raise_for_status()
         response_json = response.json()
         data = response_json["data"]

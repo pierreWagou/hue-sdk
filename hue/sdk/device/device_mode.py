@@ -1,11 +1,10 @@
-from dataclasses import dataclass
 from typing import List
+from pydantic import BaseModel
 
 from hue.sdk.device.device_mode_value import DeviceModeValue
 from hue.sdk.device.device_status import DeviceStatus
 
-@dataclass(kw_only=True)
-class DeviceMode:
+class DeviceMode(BaseModel):
 
     status: DeviceStatus
     mode: DeviceModeValue

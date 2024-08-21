@@ -1,14 +1,10 @@
-from dataclasses import dataclass
-
-from hue.sdk.resource import Resource
-from hue.sdk.resource_identifier import ResourceIdentifier
+from hue.sdk.resource import ChildResource
 from hue.sdk.bridge.time_zone import TimeZone
+from hue.sdk.resource.resource_type import ResourceType
 
-@dataclass(kw_only=True)
-class Bridge(Resource):
+class Bridge(ChildResource):
 
-    type: str = "bridge"
-    owner: ResourceIdentifier
+    type: ResourceType = ResourceType.BRIDGE
     bridge_id: str
     time_zone: TimeZone
 

@@ -1,9 +1,8 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.archetype import Archetype
 
-@dataclass(kw_only=True)
-class DeviceProductData:
+class DeviceProductData(BaseModel):
 
     model_id: str
     manufacturer_name: str

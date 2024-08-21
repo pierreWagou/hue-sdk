@@ -1,7 +1,6 @@
-from hue.sdk.client.client import HueClient
+from hue.sdk.client.client import HueClient, LightClient
 from hue.sdk.client.token import HueToken,  HueTokenFactory
 from hue.sdk.light.light import Light
-
 
 client_id="cP0EeCvVucL3271s9xHR4yDvXDGACMHE"
 client_secret="OmOzQo6waQitb0Wd"
@@ -16,7 +15,17 @@ def test_get_light():
         client_id=client_id,
         client_secret=client_secret,
     )
-    light_data = client.get_light(light_id="3c20738a-b6ee-4752-9d19-593adcad6509")
-    light = Light.model_validate(light_data)
-    print(light)
+    light = client.light.get(light_id="3c20738a-b6ee-4752-9d19-593adcad6509")
     assert isinstance(light, Light)
+
+def test_update_light():
+    light_id = "3c20738a-b6ee-4752-9d19-593adcad6509"
+    client = HueClient(
+        client_id=client_id,
+        client_secret=client_secret,
+    )
+    light = client.light.get(light_id=light_id)
+    light.on.on = False
+    client.light.update(light_id=light_id, on=light.on)
+    updated_light = client.light.get(light_id=light_id)
+    assert updated_light.on.on == False

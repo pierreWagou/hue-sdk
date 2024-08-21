@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from hue.sdk.dynamics import Dynamics
 from hue.sdk.effects import Effects
@@ -8,8 +8,7 @@ from hue.sdk.color_temperature import ColorTemperature
 from hue.sdk.dimming import Dimming
 from hue.sdk.on import On
 
-@dataclass(kw_only=True)
-class Action:
+class Action(BaseModel):
 
     on: On | None = None
     dimmming:  Dimming | None = None
