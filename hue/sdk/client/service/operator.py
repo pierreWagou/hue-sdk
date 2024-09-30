@@ -26,22 +26,11 @@ class ServiceOperator(Generic[Resource]):
     @staticmethod
     def create(hue_session: HueSession, service_endpoint: str, resource: Resource):
         hue_session.post(url=service_endpoint, json=resource.dict())
-    
-    @classmethod
-    def serialize(cls, obj: Any) -> Any:
-        if isinstance(obj, Enum):
-            value = obj.value
-        elif isinstance(obj, BaseModel):
-            value_json = obj.model_dump_json(exclude_none=True)
-            value = json.loads(value_json)
-        else:
-            value = obj
-        return value
 
     @classmethod
-    def update(cls, hue_session: HueSession, service_endpoint: str, resource_id: str, **kwargs):
+    def update(cls, hue_session: HueSession, service_endpoint: str, resource_id: str, resource: Resource):
         url = f"{service_endpoint}/{resource_id}"
-        json_data = {key: cls.serialize(obj=value) for key, value in kwargs.items() if value}
+        json_data = resource.model_dump_json(exclude_none=True)
         hue_session.put(url=url, json=json_data)
     
     @staticmethod

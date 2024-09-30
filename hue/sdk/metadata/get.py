@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 from hue.sdk.archetype import Archetype
 
-class Metadata(BaseModel):
+class MetadataGet(BaseModel):
 
     name: str
     archetype: Archetype

@@ -4,7 +4,6 @@ from hue.sdk.color.xy import XY
 from hue.sdk.color.gamut import Gamut
 from hue.sdk.color.gamut_type import GamutType
 
-class Color(BaseModel):
-    xy: XY
-    gamut: Gamut | None = None
-    gamut_type: GamutType | None = None
+class ColorPut(BaseModel):
+    
+    xy: XY | None = None

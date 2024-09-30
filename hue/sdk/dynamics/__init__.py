@@ -1,1 +1,1 @@
-from .dynamics import Dynamics
+from .get import Dynamics

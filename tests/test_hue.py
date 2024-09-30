@@ -1,6 +1,7 @@
 from hue.sdk.client.client import HueClient, LightClient
 from hue.sdk.client.token import HueToken,  HueTokenFactory
 from hue.sdk.light.light import Light
+from hue.sdk.light.light_put import LightPut
 
 client_id="cP0EeCvVucL3271s9xHR4yDvXDGACMHE"
 client_secret="OmOzQo6waQitb0Wd"
@@ -26,6 +27,7 @@ def test_update_light():
     )
     light = client.light.get(light_id=light_id)
     light.on.on = False
-    client.light.update(light_id=light_id, on=light.on)
+    light = LightPut(on=light.on)
+    client.light.update(light_id=light_id, light=light)
     updated_light = client.light.get(light_id=light_id)
     assert updated_light.on.on == False

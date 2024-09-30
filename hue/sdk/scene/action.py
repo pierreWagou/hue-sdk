@@ -6,7 +6,7 @@ from hue.sdk.gradient import Gradient
 from hue.sdk.color import Color
 from hue.sdk.color_temperature import ColorTemperature
 from hue.sdk.dimming import Dimming
-from hue.sdk.on import On
+from hue.sdk.on.get import On
 
 class Action(BaseModel):
 

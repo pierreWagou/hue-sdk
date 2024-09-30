@@ -1,4 +1,4 @@
-from hue.sdk.metadata import Metadata
+from hue.sdk.metadata.get import Metadata
 from hue.sdk.light.function import Function
 
 class LightMetadata(Metadata):

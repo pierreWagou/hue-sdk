@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
-class On(BaseModel):
+class OnGet(BaseModel):
     
     on: bool

@@ -1,7 +1,7 @@
 from hue.sdk.effects import Effects, TimedEffects
 from hue.sdk.gradient import Gradient
 from hue.sdk.identify import Identify
-from hue.sdk.light.abstract_light import AbstractLight
+from hue.sdk.light.light import Light
 from hue.sdk.light.metadata import LightMetadata
 from hue.sdk.light.mode import Mode
 from hue.sdk.powerup import Powerup
@@ -11,10 +11,10 @@ from hue.sdk.color import Color
 from hue.sdk.dynamics import Dynamics
 from hue.sdk.resource.resource_type import ResourceType
 
-class Light(AbstractLight):
+class LightGet(Light):
 
-    type: ResourceType = ResourceType.LIGHT
-    metadata: LightMetadata
+    product_data: LightProductData | None = None
+    service_id: int
     color_temperature: ColorTemperature | None = None
     color: Color | None = None
     dynamics: Dynamics | None = None

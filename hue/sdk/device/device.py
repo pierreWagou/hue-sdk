@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 from hue.sdk.device.device_product_data import DeviceProductData
-from hue.sdk.metadata import Metadata
+from hue.sdk.metadata.get import Metadata
 from hue.sdk.device.device_mode import DeviceMode
 from hue.sdk.resource import Resource
 from hue.sdk.device.usertest import Usertest
